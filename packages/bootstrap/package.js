@@ -29,8 +29,7 @@ Package.onUse(function(api) {
     ]);
 
   api.addFiles([
-    'init.js',
-    'tabular.js'
+    'init.js'
     ]);
 
   api.addFiles([
@@ -47,6 +46,7 @@ Package.onUse(function(api) {
     'views/accounts/profile.js',
     'views/accounts/accounts.less',
     'views/accounts/accounts.html',
+    'views/accounts/accounts.js',
     'views/accounts/roles.html',
     'views/accounts/account.html',
     'views/accounts/invite.html',
@@ -68,6 +68,10 @@ Package.onUse(function(api) {
     'views/pages/delete.html',
     'views/pages/pages.js',
     ], 'client');
+
+    api.addFiles([
+      'tabular.js'
+      ]);
 
   api.export('orion');
 });
