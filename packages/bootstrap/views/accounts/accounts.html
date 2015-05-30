@@ -1,5 +1,5 @@
 <template name="orionBootstrapAccountsIndex">
-  {{# Layout template="orionBootstrapSmallContentOffset" }}
+  {{# Layout template="orionBootstrapMediumContentOffset" }}
     {{# Layout template="orionBootstrapTitle" }}
       Accounts
       {{# if userHasPermission 'accounts.invite' }}
@@ -8,40 +8,17 @@
     {{/ Layout }}
 
     {{# Layout template="orionBootstrapContentContainer" }}
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Enrolled</th>
-            <th>Roles</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{# each users }}
-            <tr>
-              <td><b>{{name}}</b></td>
-              <td>
-                {{# each emails }}
-                  {{ address }}
-                {{/ each }}
-              </td>
-              <td>{{enrolled}}</td>
-              <td>
-                {{# each roles }}
-                  <span class="label label-danger">{{ this }}</span>
-                {{/ each }}
-              </td>
-              <td>
-                {{# each buttons }}
-                  <a class="btn btn-default btn-xs user-btn-action" data-user="{{ ../_id }}">{{ title }}</a>
-                {{/ each }}
-              </td>
-            </tr>
-          {{/ each }}
-        </tbody>
-      </table>
+      {{> tabular table=tabularTable class="table index-table" }}
     {{/ Layout }}
   {{/ Layout }}
+</template>
+
+<template name="orionBootstrapAccountsIndexEnrolled">
+  {{enrolled}}
+</template>
+
+<template name="orionBootstrapAccountsIndexButtons">
+  {{# each buttons}}
+    <a class="btn btn-default btn-xs user-btn-action" data-user="{{ ../_id }}">{{ title }}</a>
+  {{/ each }}
 </template>
